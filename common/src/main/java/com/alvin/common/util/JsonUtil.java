@@ -10,8 +10,8 @@ import com.google.gson.Gson;
  * https://www.yuque.com/tianyunperfect/ygzsw4/bv1mlg
  * <p>
  * JsonUtil.toObject(str,JsonHello.class)
- * JSON.parseObject(str2, new TypeReference<List<MyDay>>(){})
- * JSON.parseObject(str2, new TypeReference<JsonHello<Hello>>(){})
+ * JsonUtil.toObject(str2, new TypeReference<List<MyDay>>(){})
+ * JsonUtil.toObject(str2, new TypeReference<JsonHello<Hello>>(){})
  *
  * @author tianyunperfect
  * @date 2020/05/20

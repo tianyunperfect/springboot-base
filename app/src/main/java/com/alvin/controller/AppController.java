@@ -33,4 +33,8 @@ public class AppController {
         PageResult<User> pageResult = new PageResult<>(1, 10, 100L, Collections.singletonList(user));
         return Result.success(pageResult);
     }
+
+    public String test() {
+        return "123";
+    }
 }

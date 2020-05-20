@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>common</module>
-        <module>App</module>
+        <module>app</module>
     </modules>
 
     <parent>

@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application implements CommandLineRunner {
     public static void main(String[] args) {
+        //日志异步
+        System.setProperty("Log4jContextSelector", "org.apache.logging.log4j.core.async.AsyncLoggerContextSelector");
         SpringApplication.run(Application.class, args);
     }
 

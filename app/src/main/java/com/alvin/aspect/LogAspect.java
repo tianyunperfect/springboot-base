@@ -28,7 +28,7 @@ public class LogAspect {
     }
 
     @Around("webLog()")
-    public Object doBefore(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object webAop(ProceedingJoinPoint joinPoint) throws Throwable {
         /*
          * 执行方法之前
          */

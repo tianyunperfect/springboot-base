@@ -1,5 +1,5 @@
 # springboot-base
-可以直接使用的springboot-web架构
+可以直接使用的springboot-web架构，包含常用功能。
 
 ## 项目模块
 ```$xslt
@@ -10,9 +10,9 @@ common
 ### 包含功能
 
 - springboot-web示例
-- 日志打印
-- 异常捕获
-- controller Long类型数据自动转换
+- log4j2 日志异步打印
+- 自动捕获web异常
+- controller Long 类型数据自动转换
 
 
 ### 怎么修改jar包名称

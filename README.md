@@ -5,6 +5,10 @@ springboot-web常用功能整合，包含常用功能。
 - 自动捕获web异常
 - controller Long 类型数据自动转换
 
+工具类
+- json工具类
+- 分布式Id生成器（雪花算法，利用hostName和Ip自动分配，系统多于32个的时候，请使用redis或者mysql来分配。）
+
 ## 怎么使用
 
 1、复制项目

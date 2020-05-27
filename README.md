@@ -5,6 +5,7 @@ springboot-web常用功能整合，包含常用功能。
 - 自动捕获web异常
 - controller Long 类型数据自动转换
 - docker启动脚本、sh启动脚本
+- 添加mybatis-generate
 
 工具类
 - json工具类

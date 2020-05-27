@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="MySql" defaultModelType="flat">
+
+        <!--搜索：need to change-->
+
+        <!-- 查询单条数据插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.SelectOneByExamplePlugin"/>
+
+        <!-- MySQL分页插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.LimitPlugin">
+            <!-- 通过配置startPage影响Example中的page方法开始分页的页码，默认分页从0开始 -->
+            <property name="startPage" value="0"/>
+        </plugin>
+
+        <!-- Example Criteria 增强插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.ExampleEnhancedPlugin">
+            <!-- 是否支持已经过时的andIf方法（推荐使用when代替），默认支持 -->
+            <property name="enableAndIf" value="true"/>
+        </plugin>
+
+        <!-- Example 目标包修改插件 need to change-->
+        <plugin type="com.itfsw.mybatis.generator.plugins.ExampleTargetPlugin">
+            <!-- 修改Example类生成到目标包下 -->
+            <property name="targetPackage" value="com.alvin.dao.entity.example"/>
+        </plugin>
+
+        <!-- 数据Model属性对应Column获取插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.ModelColumnPlugin"/>
+
+        <!-- 数据Model链式构建插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.ModelBuilderPlugin"/>
+
+        <!-- 批量插入插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.BatchInsertPlugin">
+            <!--
+            开启后可以实现官方插件根据属性是否为空决定是否插入该字段功能
+            ！需开启allowMultiQueries=true多条sql提交操作，所以不建议使用！插件默认不开启
+            -->
+            <property name="allowMultiQueries" value="false"/>
+        </plugin>
+
+        <!-- 存在即更新插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.UpsertPlugin">
+            <!--
+            支持upsertByExample，upsertByExampleSelective操作
+            ！需开启allowMultiQueries=true多条sql提交操作，所以不建议使用！插件默认不开启
+            -->
+            <property name="allowMultiQueries" value="false"/>
+            <!--
+            开启批量功能，支持batchUpsert,batchUpsertWithBLOBs,batchUpserSelective
+            ！这几个方法中无法支持IncrementsPlugin的方法！插件默认不开启
+            -->
+            <property name="allowBatchUpsert" value="fasle"/>
+        </plugin>
+
+        <!-- 增量插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.IncrementPlugin"/>
+
+        <!--<table tableName="tb">-->
+        <!--&lt;!&ndash; 配置需要进行增量操作的列名称（英文半角逗号分隔） &ndash;&gt;-->
+        <!--<property name="incrementColumns" value="field1,field2"/>-->
+        <!--</table>-->
+
+        <!-- 查询结果选择性返回插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.SelectSelectivePlugin"/>
+
+        <!-- Selective选择插入更新增强插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.SelectiveEnhancedPlugin"/>
+
+        <!-- Lombok插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.LombokPlugin">
+            <!-- @Data 默认开启,同时插件会对子类自动附加@EqualsAndHashCode(callSuper = true)，@ToString(callSuper = true) -->
+            <property name="@Data" value="true"/>
+            <!-- @Builder 必须在 Lombok 版本 >= 1.18.2 的情况下开启，对存在继承关系的类自动替换成@SuperBuilder -->
+            <property name="@Builder" value="false"/>
+            <!-- @NoArgsConstructor 和 @AllArgsConstructor 使用规则和Lombok一致 -->
+            <property name="@AllArgsConstructor" value="false"/>
+            <property name="@NoArgsConstructor" value="false"/>
+            <!-- @Getter、@Setter、@Accessors 等使用规则参见官方文档 -->
+            <property name="@Accessors(chain = true)" value="false"/>
+            <!-- 临时解决IDEA工具对@SuperBuilder的不支持问题，开启后(默认未开启)插件在遇到@SuperBuilder注解时会调用ModelBuilderPlugin来生成相应的builder代码 -->
+            <property name="supportSuperBuilderForIdea" value="false"/>
+        </plugin>
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <!-- Mapper注解插件 -->
+        <plugin type="com.itfsw.mybatis.generator.plugins.MapperAnnotationPlugin">
+            <!-- @Mapper 默认开启 -->
+            <property name="@Mapper" value="true"/>
+            <!-- @Repository 默认关闭，开启后解决IDEA工具@Autowired报错 -->
+            <property name="@Repository" value="true"/>
+        </plugin>
+
+        <!--<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />-->
+
+        <!--数据库连接配置 need to change-->
+        <jdbcConnection
+                driverClass="com.mysql.cj.jdbc.Driver"
+                connectionURL="jdbc:mysql://ip-191:3306/biaozhu_medical_kg?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false"
+                userId="xxx"
+                password="xxx"/>
+
+        <!--指定自动生成的 POJO置于哪个包下 need to change -->
+        <javaModelGenerator targetPackage="com.alvin.dao.entity"
+                            targetProject="src/main/java"/>
+
+        <!--指定自动生成的 mapper.xml置于哪个包下 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+
+        <!--指定自动生成的 DAO接口置于哪个包下 need to change-->
+        <javaClientGenerator targetPackage="com.alvin.dao.mapper"
+                             targetProject="src/main/java" type="XMLMAPPER"/>
+
+        <!--指定数据表名，可以使用_和%通配符-->
+        <table tableName="similar"/>
+
+    </context>
+
+</generatorConfiguration>

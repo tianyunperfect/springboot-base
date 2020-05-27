@@ -63,9 +63,22 @@
             <version>3.3.7</version>
         </dependency>
 
+        <!--mybatis springboot自动配置-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.1.1</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>mybatis</artifactId>
+                    <groupId>org.mybatis</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--dao层mybatis-->
         <dependency>
             <groupId>com.alvin</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>dao</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

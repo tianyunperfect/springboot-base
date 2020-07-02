@@ -1,6 +1,5 @@
 package com.alvin.aspect;
 
-import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -11,6 +10,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * 日志切片
@@ -33,7 +34,7 @@ public class LogAspect {
          * 执行方法之前
          */
         long start = System.currentTimeMillis();
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
         /*
          * 执行方法
          */
@@ -41,14 +42,13 @@ public class LogAspect {
         /*
          * 执行方法之后
          */
-        StringBuilder sb = new StringBuilder();
         String split = "; ";
-        sb.append("url=").append(request.getRequestURL()).append(split);
-        sb.append("method=").append(request.getMethod()).append(split);
-        sb.append("class_method=").append(joinPoint.getSignature().getDeclaringTypeName()).append(".").append(joinPoint.getSignature().getName()).append(split);
-        sb.append("args=").append(new Gson().toJson(joinPoint.getArgs())).append(split);
-        sb.append("consumer time(ms) = ").append(System.currentTimeMillis() - start);
-        log.info(sb.toString());
+        String sb = "url=" + request.getRequestURL() + split +
+                "method=" + request.getMethod() + split +
+                "class_method=" + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName() + split +
+                "args=" + Arrays.toString(joinPoint.getArgs()) + split +
+                "consumer time(ms) = " + (System.currentTimeMillis() - start);
+        log.info(sb);
 
         return result;
     }

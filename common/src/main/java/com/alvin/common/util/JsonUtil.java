@@ -18,7 +18,7 @@ import java.util.Map;
  * @date 2020/05/20
  */
 public class JsonUtil {
-    private static final Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();;
+    private static final Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
 
     public JsonUtil() {
     }
@@ -61,6 +61,7 @@ public class JsonUtil {
 
     /**
      * 转为数组
+     *
      * @param jsonString
      * @param tClass
      * @param <T>
@@ -72,13 +73,15 @@ public class JsonUtil {
 
     /**
      * 转为list
+     *
      * @param jsonString
      * @param tClass
      * @param <T>
      * @return
      */
     public static <T> List<T> getList(String jsonString, Class<T> tClass) {
-        return gson.fromJson(jsonString, new TypeToken<List<T>>() {}.getType());
+        return gson.fromJson(jsonString, new TypeToken<List<T>>() {
+        }.getType());
     }
 
     /**
@@ -88,6 +91,7 @@ public class JsonUtil {
      * @return
      */
     public static <T> Map<String, T> getMap(String gsonString) {
-        return gson.fromJson(gsonString, new TypeToken<Map<String, T>>() {}.getType());
+        return gson.fromJson(gsonString, new TypeToken<Map<String, T>>() {
+        }.getType());
     }
 }

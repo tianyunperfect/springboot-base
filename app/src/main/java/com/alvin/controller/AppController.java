@@ -38,7 +38,4 @@ public class AppController {
         return Result.success(pageResult);
     }
 
-    public String test() {
-        return "123";
-    }
 }

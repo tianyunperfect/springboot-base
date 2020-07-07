@@ -103,7 +103,7 @@
         <!--数据库连接配置 need to change-->
         <jdbcConnection
                 driverClass="com.mysql.cj.jdbc.Driver"
-                connectionURL="jdbc:mysql://ip-191:3306/biaozhu_medical_kg?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false"
+                connectionURL="jdbc:mysql://ip-191:3306/biaozhu_medical_kg?nullCatalogMeansCurrent=true"
                 userId="xxx"
                 password="xxx"/>
 

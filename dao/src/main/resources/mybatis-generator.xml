@@ -118,8 +118,10 @@
         <javaClientGenerator targetPackage="com.alvin.dao.mapper"
                              targetProject="src/main/java" type="XMLMAPPER"/>
 
-        <!--指定数据表名，可以使用_和%通配符-->
-        <table tableName="similar"/>
+        <!--指定数据表名，可以使用_和%通配符，可以配置generatedKey，会返回insert之后的id-->
+        <table tableName="similar">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
 
     </context>
 

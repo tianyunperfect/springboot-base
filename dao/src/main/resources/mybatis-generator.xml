@@ -103,7 +103,7 @@
         <!--数据库连接配置 need to change-->
         <jdbcConnection
                 driverClass="com.mysql.cj.jdbc.Driver"
-                connectionURL="jdbc:mysql://ip-191:3306/biaozhu_medical_kg?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false"
+                connectionURL="jdbc:mysql://ip-191:3306/biaozhu_medical_kg?nullCatalogMeansCurrent=true&amp;serverTimezone=UTC"
                 userId="xxx"
                 password="xxx"/>
 
@@ -118,8 +118,10 @@
         <javaClientGenerator targetPackage="com.alvin.dao.mapper"
                              targetProject="src/main/java" type="XMLMAPPER"/>
 
-        <!--指定数据表名，可以使用_和%通配符-->
-        <table tableName="similar"/>
+        <!--指定数据表名，可以使用_和%通配符，可以配置generatedKey，会返回insert之后的id-->
+        <table tableName="similar">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
 
     </context>
 

@@ -47,7 +47,7 @@ public class HttpUtil {
     private HttpHost proxy;
 
     /** 超时时间 5秒  */
-    private Integer connectTimeout;
+    private Integer connectTimeout = 5000;
 
     /** header  */
     private HashMap<String, String> headerMap;
@@ -55,7 +55,7 @@ public class HttpUtil {
     /** urlStr  */
     private String urlStr;
 
-    private BasicCookieStore cookieStore;
+    private BasicCookieStore cookieStore = new BasicCookieStore();
 
     private RequestConfig config;
 
@@ -63,13 +63,11 @@ public class HttpUtil {
     /**
      * params参数
      */
-    private List<NameValuePair> nameValuePairs;
+    private List<NameValuePair> nameValuePairs = new ArrayList<>();
 
-    public HttpUtil() {
+    public HttpUtil(String urlStr) {
         // 5秒
-        connectTimeout = 5000;
-        cookieStore = new BasicCookieStore();
-        nameValuePairs = new ArrayList<>();
+        this.urlStr = urlStr;
     }
 
     /**

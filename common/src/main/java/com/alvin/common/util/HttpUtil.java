@@ -363,7 +363,7 @@ public class HttpUtil {
     }
 
     public static void main(String[] args) throws Exception {
-        String s = new HttpUtil().setUrlStr("https://www.baidu.com").get();
+        String s = new HttpUtil("https://www.baidu.com").get();
         System.out.println(s);
     }
 }

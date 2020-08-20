@@ -9,25 +9,27 @@ spring:
     username: xxx
     password: xxx
     #下面为连接池补充设置
-    initialSize: 5
-    # 配置获取连接等待超时的时间
-    maxWait: 60000
-    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
-    timeBetweenEvictionRunsMillis: 60000
-    # 配置一个连接在池中最小生存的时间，单位是毫秒
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: SELECT 1 FROM DUAL
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    # 打开PSCache，并且指定每个连接上PSCache的大小
-    poolPreparedStatements: true
-    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
-    filters: stat,wall
-    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
-    connectionProperties: config.stat.mergeSql=true;config.stat.slowSqlMillis=5000
-    # 合并多个DruidDataSource的监控数据
-    useGlobalDataSourceStat: true
+    druid:
+      initial-size: 5 # 初始化
+      max-active: 5 # 最大
+      min-idle: 5 # 最小
+      max-wait: 6000 # 超时时间
+      time-between-eviction-runs-millis: 60000 # 每分钟检查一次空闲链接
+      min-evictable-idle-time-millis: 300000 # 空闲链接可以保持多久而不被驱逐
+      # 检测链接是否有效的query
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true # 检测到链接空闲时，验证是否有效
+      test-on-borrow: false # 申请链接时，不检测
+      test-on-return: false # 返回链接时，不检测
+      pool-prepared-statements: false # 是否缓存preparedStatement,oracle打开，mysql关闭
+      # 如果上面开启了游标，这里要设置一下大小，例如 50
+      max-pool-prepared-statement-per-connection-size: -1
+      # 统计、监控配置
+      filters: stat,wall # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      # 合并执行的相同sql，避免因为参数不同而统计多条sql语句；开启慢sql记录
+      connect-properties: config.stat.mergeSql=true;config.stat.slowSqlMillis=500
+      use-global-data-source-stat: true # 合并多个DruidDataSource的监控数据
+
 
 
 mybatis:

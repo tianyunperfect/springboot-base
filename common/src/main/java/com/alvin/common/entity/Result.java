@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * @Description
@@ -23,9 +22,10 @@ public class Result<T> implements Serializable {
     private T data;
 
     public static <T> Result<T> result(Boolean flag, ResultCode resultCode, T data) {
-        return new Result<T>(flag, resultCode.ordinal(), resultCode.name(), data);
+        return new Result<T>(flag, resultCode.getCode(), resultCode.getMessage(), data);
     }
 
+    //region success封装
     public static <T> Result<T> success(ResultCode resultCode, T data) {
         return result(true, resultCode, data);
     }
@@ -37,22 +37,41 @@ public class Result<T> implements Serializable {
     public static <T> Result<T> success() {
         return success(null);
     }
+    //endregion
 
+
+    //region failure封装
     public static <T> Result<T> failure(Integer code, String message) {
         return new Result<T>(false, code, message, null);
     }
 
     public static <T> Result<T> failure(ResultCode resultCode) {
-        return new Result<T>(false, resultCode.ordinal(), resultCode.name(), null);
+        return new Result<T>(false, resultCode.getCode(), resultCode.getMessage(), null);
     }
 
     public static <T> Result<T> failure() {
         return failure(ResultCode.FAIL);
     }
+    //endregion
+
+    public static <T> Result<T> byBoolean(Boolean bool,ResultCode resultCode) {
+        if (bool) {
+            return Result.success();
+        } else {
+            return Result.failure(resultCode);
+        }
+    }
+
+    public static <T> Result<T> byObject(T t,ResultCode resultCode) {
+        if (t != null) {
+            return Result.success(t);
+        } else {
+            return Result.failure(resultCode);
+        }
+    }
 
     public static void main(String[] args) {
-        ArrayList<String> strings = new ArrayList<>();
-        strings.add("12");
-        System.out.println(Result.success(strings));
+        System.out.println(Result.byBoolean(false,ResultCode.UNKNOW));
+        System.out.println(Result.byObject(null,ResultCode.UNKNOW));
     }
 }

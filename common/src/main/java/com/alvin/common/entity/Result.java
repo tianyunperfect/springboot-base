@@ -54,24 +54,28 @@ public class Result<T> implements Serializable {
     }
     //endregion
 
-    public static <T> Result<T> byBoolean(Boolean bool,ResultCode resultCode) {
-        if (bool) {
-            return Result.success();
-        } else {
-            return Result.failure(resultCode);
-        }
-    }
 
-    public static <T> Result<T> byObject(T t,ResultCode resultCode) {
-        if (t != null) {
+    /**
+     * 通过对象输出结果
+     * 当对象为 true 或者不为 null 的时候返回正常
+     *
+     * @param t          t
+     * @param resultCode 结果代码
+     * @return {@link Result<T>}
+     */
+    public static <T> Result<T> byObject(T t, ResultCode resultCode) {
+        if (t instanceof Boolean) {
+            if ((Boolean) t) {
+                return Result.success();
+            }
+        } else if (t != null) {
             return Result.success(t);
-        } else {
-            return Result.failure(resultCode);
         }
+        return Result.failure(resultCode);
     }
 
     public static void main(String[] args) {
-        System.out.println(Result.byBoolean(false,ResultCode.UNKNOW));
-        System.out.println(Result.byObject(null,ResultCode.UNKNOW));
+        System.out.println(Result.byObject(null, ResultCode.UNKNOW));
+        System.out.println(Result.byObject(false, ResultCode.UNKNOW));
     }
 }

@@ -29,7 +29,13 @@ spring:
       # 合并执行的相同sql，避免因为参数不同而统计多条sql语句；开启慢sql记录
       connect-properties: config.stat.mergeSql=true;config.stat.slowSqlMillis=500
       use-global-data-source-stat: true # 合并多个DruidDataSource的监控数据
-
+      stat-view-servlet:
+        enabled: true
+        login-username: tianyun
+        login-password: tianyunperfect
+        allow: # 默认运行所有
+        deny: # 默认即可
+        reset-enable: true
 
 
 mybatis:

@@ -87,6 +87,18 @@ start() {
   fi
 }
 
+# docker_start 前台运行
+docker_start() {
+  is_exist
+  if [ $? -eq "0" ]; then
+    echo "${APP_NAME} is already running, PID=${PID}"
+  else
+    java -jar $JAVA_OPTS ${APP_NAME} >>${STDOUT_FILE} 2>&1
+    PID=$(echo $!)
+    echo "${APP_NAME} start success, PID=$!"
+  fi
+}
+
 # 停止进程函数
 stop() {
   is_exist
@@ -126,6 +138,9 @@ status() {
 
 case $1 in
 "start")
+  start
+  ;;
+"docker_start")
   start
   ;;
 "stop")

@@ -4,14 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.alvin</groupId>
+    <groupId>com.alvin.springboot</groupId>
     <artifactId>springboot-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>common</module>
-        <module>app</module>
-        <module>dao</module>
+        <module>springboot-common</module>
+        <module>springboot-main</module>
+        <module>springboot-dao</module>
     </modules>
 
     <parent>

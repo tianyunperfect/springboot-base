@@ -54,7 +54,9 @@ public class Result<T> implements Serializable {
     }
     //endregion
 
-
+    public static <T> Result<T> byObject(T t) {
+        return byObject(t,ResultCode.UNKNOW);
+    }
     /**
      * 通过对象输出结果
      * 当对象为 true 或者不为 null 的时候返回正常

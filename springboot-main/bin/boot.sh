@@ -113,6 +113,8 @@ stop() {
         echo "${APP_NAME} process stop"
       fi
     done
+    # 删除临时文件
+    rm -rf ./tomcat.*
   else
     echo "There is not the process of ${APP_NAME}"
   fi

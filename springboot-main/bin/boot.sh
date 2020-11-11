@@ -39,9 +39,7 @@ JAVA_OPTS="$JAVA_OPTS -server "
 # 垃圾收集器、设置分层编译、
 JAVA_OPTS="$JAVA_OPTS -XX:+UseG1GC -XX:+TieredCompilation"
 # 自定义配置文件和lib目录，多个目录用冒号分割
-# 已修改为分离 lib和 resource，所以 Dloader.path暂时不用
-#JAVA_OPTS="$JAVA_OPTS -Dloader.path=config -Djava.io.tmpdir=./tmp "
-JAVA_OPTS="$JAVA_OPTS -Djava.io.tmpdir=./tmp "
+JAVA_OPTS="$JAVA_OPTS -Dloader.path=config -Djava.io.tmpdir=./ "
 # 服务器模式、兼容IPV4、编码（避免乱码）、禁止代码调用gc、
 JAVA_OPTS="$JAVA_OPTS -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Dfile.encoding=UTF-8  -XX:+DisableExplicitGC"
 # gc 日志
@@ -115,6 +113,8 @@ stop() {
         echo "${APP_NAME} process stop"
       fi
     done
+    # 删除临时文件
+    rm -rf ./tomcat.*
   else
     echo "There is not the process of ${APP_NAME}"
   fi

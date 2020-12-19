@@ -2,17 +2,13 @@ package com.alvin.common.entity;
 
 public enum ResultCode {
     // 基本
-    SUCCESS(1, "success"),
+    SUCCESS(0, "success"),
     FAIL(-1, "fail"),
-    UNKNOW(-2, "unknow"),
+    UNKNOWN(-2, "unknown"),
+
     ;
-    /**
-     * 代码
-     */
+
     private Integer code;
-    /**
-     * 消息
-     */
     private String message;
 
     public Integer getCode() {
@@ -35,4 +31,5 @@ public enum ResultCode {
         this.code = code;
         this.message = message;
     }
+
 }

@@ -1,5 +1,6 @@
 package com.alvin.controller;
 
+import com.alvin.annotation.ResponseResult;
 import com.alvin.common.entity.PageResult;
 import com.alvin.common.entity.Result;
 import com.alvin.entity.User;
@@ -13,6 +14,7 @@ import java.util.Collections;
 @Slf4j
 @RestController
 @RequestMapping("/user")
+@ResponseResult
 public class AppController {
 
     /**
@@ -20,22 +22,23 @@ public class AppController {
      *
      * @return {@link Result<User>}
      */
+    @ResponseResult
     @GetMapping("/findOne")
-    public Result<User> findOne() {
+    public User findOne() {
         User user = new User();
         user.setName("小米");
         user.setAge(18);
         log.info(user.toString());
-        return Result.success(user);
+        return user;
     }
 
     @GetMapping("/queryPage")
-    public Result<PageResult<User>> queryPage() {
+    public PageResult<User> queryPage() {
         User user = new User();
         user.setName("小米");
         user.setAge(18);
         PageResult<User> pageResult = new PageResult<>(1, 10, 100L, Collections.singletonList(user));
-        return Result.success(pageResult);
+        return pageResult;
     }
 
 }

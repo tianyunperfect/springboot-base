@@ -22,7 +22,7 @@ public class Result<T> implements Serializable {
     private T data;
 
     public static <T> Result<T> result(Boolean flag, ResultCode resultCode, T data) {
-        return new Result<T>(flag, resultCode.getCode(), resultCode.getMessage(), data);
+        return new Result<>(flag, resultCode.getCode(), resultCode.getMessage(), data);
     }
 
     //region success封装
@@ -42,11 +42,11 @@ public class Result<T> implements Serializable {
 
     //region failure封装
     public static <T> Result<T> failure(Integer code, String message) {
-        return new Result<T>(false, code, message, null);
+        return new Result<>(false, code, message, null);
     }
 
     public static <T> Result<T> failure(ResultCode resultCode) {
-        return new Result<T>(false, resultCode.getCode(), resultCode.getMessage(), null);
+        return new Result<>(false, resultCode.getCode(), resultCode.getMessage(), null);
     }
 
     public static <T> Result<T> failure() {
@@ -54,7 +54,9 @@ public class Result<T> implements Serializable {
     }
     //endregion
 
-
+    public static <T> Result<T> byObject(T t) {
+        return byObject(t,ResultCode.UNKNOWN);
+    }
     /**
      * 通过对象输出结果
      * 当对象为 true 或者不为 null 的时候返回正常
@@ -75,7 +77,7 @@ public class Result<T> implements Serializable {
     }
 
     public static void main(String[] args) {
-        System.out.println(Result.byObject(null, ResultCode.UNKNOW));
-        System.out.println(Result.byObject(false, ResultCode.UNKNOW));
+        System.out.println(Result.byObject(null, ResultCode.UNKNOWN));
+        System.out.println(Result.byObject(false, ResultCode.UNKNOWN));
     }
 }

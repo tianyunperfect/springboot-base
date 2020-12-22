@@ -27,8 +27,8 @@
 
         <!--common-->
         <dependency>
-            <groupId>com.alvin</groupId>
-            <artifactId>common</artifactId>
+            <groupId>com.alvin.springboot</groupId>
+            <artifactId>springboot-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!--mysql-->
@@ -36,6 +36,10 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.16</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
     <build>

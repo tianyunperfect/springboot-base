@@ -1,4 +1,4 @@
-package com.alvin.handle;
+package com.alvin.advice;
 
 import com.alvin.common.entity.Result;
 import com.alvin.common.entity.ResultCode;
@@ -15,18 +15,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @ControllerAdvice
 @Slf4j
-public class ExceptionHandle {
+public class ExceptionAdvice {
 
     /**
      * 统一异常处理
-     * @param e
-     * @return
+     * @param e 异常
+     * @return Result
      */
     @ResponseBody
     @ExceptionHandler
     public Result exceptionHandle(Exception e) {
         e.printStackTrace();
         log.error("系统异常：{}", e.toString());
-        return Result.failure(ResultCode.UNKNOW.ordinal(), e.getMessage());
+        return Result.failure(ResultCode.UNKNOWN.ordinal(), e.getMessage());
     }
 }

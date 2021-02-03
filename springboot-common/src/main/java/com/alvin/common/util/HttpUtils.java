@@ -40,7 +40,7 @@ import java.util.Map;
 
 @Data
 @Accessors(chain = true)
-public class HttpUtil {
+public class HttpUtils {
 
 
     /** 代理  */
@@ -65,7 +65,7 @@ public class HttpUtil {
      */
     private List<NameValuePair> nameValuePairs = new ArrayList<>();
 
-    public HttpUtil(String urlStr) {
+    public HttpUtils(String urlStr) {
         // 5秒
         this.urlStr = urlStr;
     }
@@ -76,7 +76,7 @@ public class HttpUtil {
      * @param paramsMap
      * @throws URISyntaxException
      */
-    public HttpUtil setParams(HashMap<String, String> paramsMap){
+    public HttpUtils setParams(HashMap<String, String> paramsMap){
         for (Map.Entry<String, String> entry : paramsMap.entrySet()) {
             nameValuePairs.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
         }
@@ -261,7 +261,7 @@ public class HttpUtil {
      * @param port
      * @param httpType
      */
-    public HttpUtil setProxy(String ip, int port, String httpType) {
+    public HttpUtils setProxy(String ip, int port, String httpType) {
         this.proxy = new HttpHost(ip, port, httpType);
         return this;
     }
@@ -363,7 +363,7 @@ public class HttpUtil {
     }
 
     public static void main(String[] args) throws Exception {
-        String s = new HttpUtil("https://www.baidu.com").get();
+        String s = new HttpUtils("https://www.baidu.com").get();
         System.out.println(s);
     }
 }

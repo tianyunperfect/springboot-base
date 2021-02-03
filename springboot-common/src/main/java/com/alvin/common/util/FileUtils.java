@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
  * @author tianyunperfect
  * @date 2021/01/15
  */
-public class FileUtil {
+public class FileUtils {
     /**
      * 获取到 BF，一定要手动关闭
      *

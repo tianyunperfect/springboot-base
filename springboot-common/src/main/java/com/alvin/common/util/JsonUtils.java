@@ -17,10 +17,10 @@ import java.util.Map;
  * @author tianyunperfect
  * @date 2020/05/20
  */
-public class JsonUtil {
+public class JsonUtils {
     private static final Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
 
-    public JsonUtil() {
+    public JsonUtils() {
     }
 
     /**

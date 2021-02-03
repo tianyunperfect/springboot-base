@@ -15,7 +15,7 @@ import java.time.temporal.TemporalAdjusters;
  * @author tianyunperfect
  * @date 2020/05/28
  */
-public class DateUtil {
+public class DateUtils {
 
     /**
      * 当前秒

@@ -5,7 +5,7 @@
     <parent>
         <artifactId>springboot-parent</artifactId>
         <groupId>com.alvin.springboot</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>${app.version}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -29,7 +29,6 @@
         <dependency>
             <groupId>com.alvin.springboot</groupId>
             <artifactId>springboot-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
         <!--mysql-->
         <dependency>

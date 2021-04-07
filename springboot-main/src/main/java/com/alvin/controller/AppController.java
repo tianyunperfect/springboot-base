@@ -4,7 +4,10 @@ import com.alvin.annotation.ResponseResult;
 import com.alvin.common.entity.PageResult;
 import com.alvin.common.entity.Result;
 import com.alvin.entity.User;
+import com.alvin.service.AppService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +18,9 @@ import java.util.Collections;
 @RestController
 @RequestMapping("/user")
 @ResponseResult
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class AppController {
+    private final AppService appService;
 
     /**
      * 找到一个

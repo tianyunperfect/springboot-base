@@ -9,9 +9,7 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>springboot-common</module>
         <module>springboot-main</module>
-        <module>springboot-dao</module>
     </modules>
 
     <parent>
@@ -41,16 +39,7 @@
     <!--锁定springCloud版本-->
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>com.alvin.springboot</groupId>
-                <artifactId>springboot-common</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alvin.springboot</groupId>
-                <artifactId>springboot-dao</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+
             <dependency>
                 <groupId>com.alvin.springboot</groupId>
                 <artifactId>springboot-main</artifactId>

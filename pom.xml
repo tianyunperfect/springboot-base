@@ -7,7 +7,7 @@
     <artifactId>springboot-parent</artifactId>
     <groupId>com.alvin.springboot</groupId>
     <packaging>pom</packaging>
-    <version>${app.version}</version>
+    <version>1.0-SNAPSHOT</version>
     <modules>
         <module>springboot-common</module>
         <module>springboot-main</module>
@@ -21,12 +21,22 @@
         <relativePath/>
     </parent>
     <properties>
-        <app.version>1.0-SNAPSHOT</app.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
     </properties>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <!--锁定springCloud版本-->
     <dependencyManagement>
@@ -34,12 +44,12 @@
             <dependency>
                 <groupId>com.alvin.springboot</groupId>
                 <artifactId>springboot-common</artifactId>
-                <version>${app.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alvin.springboot</groupId>
                 <artifactId>springboot-dao</artifactId>
-                <version>${app.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alvin.springboot</groupId>

@@ -13,14 +13,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
+import java.util.List;
 
 @Slf4j
 @RestController
 @RequestMapping("/user")
 @ResponseResult
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class AppController {
-    private final AppService appService;
+
+    @Autowired
+    private AppService appService;
 
     /**
      * 找到一个

@@ -5,9 +5,9 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://soft.tianyunperfect.cn:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
-    username: root
-    password: tianyunali
+    url: jdbc:mysql://xxx:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: xxx
+    password: xxx
     druid:
       initial-size: 5 # 初始化
       max-active: 5 # 最大

@@ -4,6 +4,7 @@ import com.alvin.annotation.ResponseResult;
 import com.alvin.common.entity.PageResult;
 import com.alvin.common.entity.Result;
 import com.alvin.entity.User;
+import com.alvin.repository.PersonRepository;
 import com.alvin.service.AppService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +24,8 @@ public class AppController {
 
     @Autowired
     private AppService appService;
+    @Autowired
+    private PersonRepository personRepository;
 
     /**
      * 找到一个

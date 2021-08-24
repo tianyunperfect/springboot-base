@@ -5,10 +5,9 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://ip-191:3306/biaozhu_medical_kg?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
-    username: xxx
-    password: xxx
-    #下面为连接池补充设置
+    url: jdbc:mysql://soft.tianyunperfect.cn:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: tianyunali
     druid:
       initial-size: 5 # 初始化
       max-active: 5 # 最大
@@ -36,16 +35,8 @@ spring:
         allow: # 默认运行所有
         deny: # 默认即可
         reset-enable: true
-
-
-mybatis:
-  type-aliases-package: com.alvin.dao.entity
-  mapper-locations: classpath:mapper/*Mapper.xml
-
-
-# 设置debug模式下打印mysql
-logging:
-  level:
-    com:
-      alvin:
-        mapper: debug
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect

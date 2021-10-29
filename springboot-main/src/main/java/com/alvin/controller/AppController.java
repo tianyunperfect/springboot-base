@@ -1,6 +1,5 @@
 package com.alvin.controller;
 
-import com.alvin.annotation.ResponseResult;
 import com.alvin.common.entity.PageResult;
 import com.alvin.common.entity.Result;
 import com.alvin.entity.User;
@@ -19,7 +18,6 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/user")
-@ResponseResult
 public class AppController {
 
     @Autowired
@@ -32,7 +30,6 @@ public class AppController {
      *
      * @return {@link Result<User>}
      */
-    @ResponseResult
     @GetMapping("/findOne")
     public User findOne() {
         User user = new User();

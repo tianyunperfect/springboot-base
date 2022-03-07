@@ -7,27 +7,19 @@
 
     <context id="MySql" defaultModelType="flat">
 
-        <!--搜索：need to change-->
-
         <!-- 查询单条数据插件 -->
         <plugin type="com.itfsw.mybatis.generator.plugins.SelectOneByExamplePlugin"/>
 
         <!-- MySQL分页插件 -->
         <plugin type="com.itfsw.mybatis.generator.plugins.LimitPlugin">
             <!-- 通过配置startPage影响Example中的page方法开始分页的页码，默认分页从0开始 -->
-            <property name="startPage" value="0"/>
+            <property name="startPage" value="1"/>
         </plugin>
 
         <!-- Example Criteria 增强插件 -->
         <plugin type="com.itfsw.mybatis.generator.plugins.ExampleEnhancedPlugin">
             <!-- 是否支持已经过时的andIf方法（推荐使用when代替），默认支持 -->
             <property name="enableAndIf" value="true"/>
-        </plugin>
-
-        <!-- Example 目标包修改插件 need to change-->
-        <plugin type="com.itfsw.mybatis.generator.plugins.ExampleTargetPlugin">
-            <!-- 修改Example类生成到目标包下 -->
-            <property name="targetPackage" value="com.alvin.dao.entity.example"/>
         </plugin>
 
         <!-- 数据Model属性对应Column获取插件 -->
@@ -99,6 +91,12 @@
         </plugin>
 
         <!--<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />-->
+
+        <!-- Example 目标包修改插件 need to change-->
+        <plugin type="com.itfsw.mybatis.generator.plugins.ExampleTargetPlugin">
+            <!-- 修改Example类生成到目标包下 -->
+            <property name="targetPackage" value="com.alvin.dao.entity.example"/>
+        </plugin>
 
         <!--数据库连接配置 need to change-->
         <jdbcConnection

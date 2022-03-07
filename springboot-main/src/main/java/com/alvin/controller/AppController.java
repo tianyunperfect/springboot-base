@@ -1,11 +1,9 @@
 package com.alvin.controller;
 
-import com.alvin.annotation.ResponseResult;
 import com.alvin.common.entity.PageResult;
 import com.alvin.common.entity.Result;
 import com.alvin.entity.User;
 import com.alvin.service.AppService;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,12 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
-import java.util.List;
 
 @Slf4j
 @RestController
 @RequestMapping("/user")
-@ResponseResult
 public class AppController {
 
     @Autowired
@@ -29,7 +25,6 @@ public class AppController {
      *
      * @return {@link Result<User>}
      */
-    @ResponseResult
     @GetMapping("/findOne")
     public User findOne() {
         User user = new User();

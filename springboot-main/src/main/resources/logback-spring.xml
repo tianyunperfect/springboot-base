@@ -2,11 +2,12 @@
 <configuration debug="false" scan="true" scanPeriod="30 seconds">
 
     <jmxConfigurator/>
-    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss:SSS}:[%c:%L] [%thread] %-5level %msg%n"/>
-    <property name="log.home" value="./log"/>
+    <property name="FILE_LOG_PATTERN" value="%d{HH:mm:ss:SSS}:[%c:%L] [%thread] %-5level %msg%n"/>
+    <property name="log.home" value="/Users/mlamp/IdeaProjects/springboot-parent/log"/>
     <property name="log.level" value="INFO"/>
     <property name="log.max.file.size" value="100MB"/>
     <property name="log.max.history" value="72"/>
+
     <!-- 控制台输出日志 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -107,37 +108,4 @@
         <appender-ref ref="FILE-WARN-ASYNC"/>
         <appender-ref ref="FILE-ERROR-ASYNC"/>
     </root>
-
-    <!-- 配置UserController日志输出至单独的日志文件中 -->
-    <appender name="UserController" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!--日志归档策略 -->
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <!--日志文件输出的文件名-->
-            <FileNamePattern>${log.home}/%d{yyyy-MM-dd}/info/userController-%d{yyyy-MM-dd}-%i.log</FileNamePattern>
-            <MaxFileSize>${log.max.file.size}</MaxFileSize>
-            <MaxHistory>${log.max.history}</MaxHistory>
-        </rollingPolicy>
-        <encoder
-                class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-            <!-- 日志输出编码 -->
-            <layout class="ch.qos.logback.classic.PatternLayout">
-                <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
-                <pattern>${FILE_LOG_PATTERN}</pattern>
-            </layout>
-        </encoder>
-        <!--日志文件最大的大小-->
-        <!--<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
-            <MaxFileSize>10MB</MaxFileSize>
-        </triggeringPolicy>-->
-    </appender>
-
-    <!--需要将日志单独输出的包路径-->
-    <logger name="com.leaveword.controller.UserController" additivity="false">
-        <appender-ref ref="UserController"/>
-        <!--同时控制台打印-->
-        <appender-ref ref="STDOUT" />
-    </logger>
-
-
-
 </configuration>

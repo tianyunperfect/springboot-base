@@ -1,10 +1,12 @@
 package com.alvin;
 
+import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@Slf4j
 @SpringBootApplication
 @MapperScan("com.alvin.dao.mapper")
 public class Application implements CommandLineRunner {
@@ -15,7 +17,7 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("启动成功");
+        log.info("启动成功");
     }
 
 }

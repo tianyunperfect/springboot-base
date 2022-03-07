@@ -3,7 +3,7 @@
 
     <jmxConfigurator/>
     <property name="FILE_LOG_PATTERN" value="%d{HH:mm:ss:SSS}:[%c:%L] [%thread] %-5level %msg%n"/>
-    <property name="log.home" value="/Users/mlamp/IdeaProjects/springboot-parent/log"/>
+    <property name="log.home" value="log"/>
     <property name="log.level" value="INFO"/>
     <property name="log.max.file.size" value="100MB"/>
     <property name="log.max.history" value="72"/>

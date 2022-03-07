@@ -2,7 +2,7 @@
 
 springboot-web常用功能整合，包含常用功能。
 - springboot-web示例
-- log4j2 日志异步打印
+- logback 日志异步打印
 - 自动捕获web异常
 - controller Long 类型数据自动转换
 - docker启动脚本、sh启动脚本

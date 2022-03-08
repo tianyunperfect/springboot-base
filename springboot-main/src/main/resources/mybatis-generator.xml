@@ -82,7 +82,7 @@
                 driverClass="com.mysql.cj.jdbc.Driver"
                 connectionURL="jdbc:mysql://sql1.com:3306/eip_kafka?nullCatalogMeansCurrent=true&amp;serverTimezone=UTC"
                 userId="root"
-                password="xxx"/>
+                password="mininglamp"/>
 
         <!--指定自动生成的 POJO置于哪个包下 need to change -->
         <javaModelGenerator targetPackage="com.alvin.dao.entity"

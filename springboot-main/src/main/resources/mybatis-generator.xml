@@ -17,10 +17,7 @@
         </plugin>
 
         <!-- Example Criteria 增强插件 -->
-        <plugin type="com.itfsw.mybatis.generator.plugins.ExampleEnhancedPlugin">
-            <!-- 是否支持已经过时的andIf方法（推荐使用when代替），默认支持 -->
-            <property name="enableAndIf" value="true"/>
-        </plugin>
+        <plugin type="com.itfsw.mybatis.generator.plugins.ExampleEnhancedPlugin"/>
 
         <!-- 数据Model属性对应Column获取插件 -->
         <plugin type="com.itfsw.mybatis.generator.plugins.ModelColumnPlugin"/>
@@ -29,35 +26,13 @@
         <plugin type="com.itfsw.mybatis.generator.plugins.ModelBuilderPlugin"/>
 
         <!-- 批量插入插件 -->
-        <plugin type="com.itfsw.mybatis.generator.plugins.BatchInsertPlugin">
-            <!--
-            开启后可以实现官方插件根据属性是否为空决定是否插入该字段功能
-            ！需开启allowMultiQueries=true多条sql提交操作，所以不建议使用！插件默认不开启
-            -->
-            <property name="allowMultiQueries" value="false"/>
-        </plugin>
+        <plugin type="com.itfsw.mybatis.generator.plugins.BatchInsertPlugin"/>
 
         <!-- 存在即更新插件 -->
-        <plugin type="com.itfsw.mybatis.generator.plugins.UpsertPlugin">
-            <!--
-            支持upsertByExample，upsertByExampleSelective操作
-            ！需开启allowMultiQueries=true多条sql提交操作，所以不建议使用！插件默认不开启
-            -->
-            <property name="allowMultiQueries" value="false"/>
-            <!--
-            开启批量功能，支持batchUpsert,batchUpsertWithBLOBs,batchUpserSelective
-            ！这几个方法中无法支持IncrementsPlugin的方法！插件默认不开启
-            -->
-            <property name="allowBatchUpsert" value="fasle"/>
-        </plugin>
+        <plugin type="com.itfsw.mybatis.generator.plugins.UpsertPlugin"/>
 
         <!-- 增量插件 -->
         <plugin type="com.itfsw.mybatis.generator.plugins.IncrementPlugin"/>
-
-        <!--<table tableName="tb">-->
-        <!--&lt;!&ndash; 配置需要进行增量操作的列名称（英文半角逗号分隔） &ndash;&gt;-->
-        <!--<property name="incrementColumns" value="field1,field2"/>-->
-        <!--</table>-->
 
         <!-- 查询结果选择性返回插件 -->
         <plugin type="com.itfsw.mybatis.generator.plugins.SelectSelectivePlugin"/>
@@ -98,11 +73,15 @@
             <property name="targetPackage" value="com.alvin.dao.entity.example"/>
         </plugin>
 
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
         <!--数据库连接配置 need to change-->
         <jdbcConnection
                 driverClass="com.mysql.cj.jdbc.Driver"
-                connectionURL="jdbc:mysql://ip-191:3306/biaozhu_medical_kg?nullCatalogMeansCurrent=true&amp;serverTimezone=UTC"
-                userId="xxx"
+                connectionURL="jdbc:mysql://sql1.com:3306/eip_kafka?nullCatalogMeansCurrent=true&amp;serverTimezone=UTC"
+                userId="root"
                 password="xxx"/>
 
         <!--指定自动生成的 POJO置于哪个包下 need to change -->
@@ -117,9 +96,10 @@
                              targetProject="src/main/java" type="XMLMAPPER"/>
 
         <!--指定数据表名，可以使用_和%通配符，可以配置generatedKey，会返回insert之后的id-->
-        <table tableName="similar">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
+        <!--<table tableName="similar">-->
+        <!--    <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <table tableName="db_kafka"></table>
 
     </context>
 
